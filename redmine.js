@@ -10,10 +10,10 @@ module.exports = function (req, res, next) {
   
   var Redmine = require('promised-redmine');
 var config = {
-  host: "redmine.tagsysrfid.com", // required
-  apiKey: "3e8d2076c0115a3f1590b6d24c6935dd11f8ecfe", // required
-  pathPrefix: "/redmine",
-  protocol: "https",
+  host: process.env.redmine_host, // required
+  apiKey: process.env.redmine_keys, // required
+  pathPrefix: process.env.redmine_prefix,
+  protocol: process.env.redmine_protocol,
   // if using SSL settings, change protocol and port accordingly
   // sslCaCert: '/path/to/root/ca.pem', // defaults to null
   // sslClientCert: '/path/to/client/cert.pem', // defaults to null
@@ -34,7 +34,6 @@ var config = {
     if (matches && matches[1]) {
       id = matches[1];
       // write response message and add to payload
-      console.log('id = '+id);
       
       
       /**
@@ -54,12 +53,10 @@ var config = {
        
        var redmineApi = new Redmine(config);
        redmineApi.verbose = true;
-       console.log(redmineApi);
         redmineApi.getIssue(id, null)
           .success(function(issue){ // success is an alias of then without the promise rejection management in D.js the underlying promise library
             // do something with that
-            console.log('get issue');
-            console.log(issue);
+            
             
             botPayload.attachments = [
             {

@@ -17,15 +17,17 @@ var id = 4406;
 var redmineApi = new Redmine(config);
        redmineApi.verbose = true;
        console.log(redmineApi);
-        redmineApi.getIssue(id, null)
+        redmineApi.getIssues()
           .success(function(issue){ // success is an alias of then without the promise rejection management in D.js the underlying promise library
             // do something with that
             console.log('get issue');
             console.log(issue);
+            return res.status(200).send('Success');
             
-          }).error(function (error, error2) {
+          }).error(function (error) {
             console.log('error redmine');
-            console.log(error, error2);
+            console.log(error);
+            return res.status(200).send('Error : '+error);
           });
 
 }

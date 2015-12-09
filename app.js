@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var hellobot = require('./hellobot');
 var dicebot = require('./dicebot');
 var redmine = require('./redmine');
+var red_command = require('./red_command');
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -15,6 +16,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
+
 // test route
 app.get('/', function (req, res) { res.status(200).send('Hello world!') });
 
@@ -24,8 +26,12 @@ app.get('/hello', hellobot);
 // dicebot
 app.post('/roll', dicebot);
 
-// dicebot
+// redmine ticket
 app.post('/redmine', redmine);
+
+// red_command
+app.post('/red', red_command);
+//app.get('/red', red_command);
 
 
 // basic error handler
