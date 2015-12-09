@@ -60,36 +60,36 @@ var config = {
             
             botPayload.attachments = [
             {
-                "fallback": issue.subject,
+                "fallback": (issue.subject)? issue.subject : '',
                 /*"pretext": "New ticket from Andrea Lee",*/
-                "title": "Ticket #"+id+": "+issue.subject,
+                "title": "Ticket #"+id+": "+(issue.subject)? issue.subject : '',
                 "title_link": redmine_url+'issues/'+ id,
                 "text": issue.description,
                 "color": "#7CD197",
                 "fields" : [
                 {
                     "title": "Project",
-                    "value": issue.project.name,
+                    "value": (issue.project)? issue.project.name  : '',
                     "short": true
                 },
                 {
                     "title": "Tracker",
-                    "value": issue.tracker.name,
+                    "value": (issue.tracker)? issue.tracker.name  : '',
                     "short": true
                 },
                 {
                     "title": "Status",
-                    "value": issue.status.name,
+                    "value": (issue.status)? issue.status.name : '',
                     "short": true
                 },
                 {
                     "title": "Author",
-                    "value": issue.author.name,
+                    "value": (issue.author)? issue.author.name  : '',
                     "short": true
                 },
                 {
                     "title": "Assigned to",
-                    "value": issue.assigned_to.name,
+                    "value": (issue.assigned_to)? issue.assigned_to.name : '',
                     "short": true
                 }
             ]
@@ -125,6 +125,7 @@ var config = {
           }).error(function (error) {
             console.log('error redmine');
             console.log(error);
+            return res.status(200).send('error : '+error);
           });
   
   
