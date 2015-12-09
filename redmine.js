@@ -62,7 +62,7 @@ var config = {
             {
                 "fallback": (issue.subject)? issue.subject : '',
                 /*"pretext": "New ticket from Andrea Lee",*/
-                "title": "Ticket #"+id+": "+(issue.subject)? issue.subject : '',
+                "title": "Ticket #"+id+": "+((issue.subject)? issue.subject : ''),
                 "title_link": redmine_url+'issues/'+ id,
                 "text": issue.description,
                 "color": "#7CD197",
