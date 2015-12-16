@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var hellobot = require('./hellobot');
+var redbot = require('./redbot');
 var dicebot = require('./dicebot');
 var redmine = require('./redmine');
 var red_command = require('./red_command');
@@ -22,6 +23,9 @@ app.get('/', function (req, res) { res.status(200).send('Hello world!') });
 
 // hellobot
 app.get('/hello', hellobot);
+
+// outcomming with a # 
+app.post('/redbot', redbot);
 
 // dicebot
 app.post('/roll', dicebot);

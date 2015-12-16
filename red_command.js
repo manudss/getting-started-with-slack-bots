@@ -94,7 +94,7 @@ function getLast () {
                   "fallback": issue.subject,
                   /*"pretext": "New ticket from Andrea Lee",*/
                   "title": "#"+issue.id+": "+issue.subject,
-                  "title_link": redmine_url+'issues/'+ id
+                  "title_link": redmine_url+'issues/'+issue.id
               }
               );
             }
@@ -171,7 +171,7 @@ function find (search) {
                   "fallback": issue.subject,
                   /*"pretext": "New ticket from Andrea Lee",*/
                   "title": "Ticket #"+issue.id+": "+issue.subject,
-                  "title_link": redmine_url+'issues/'+ id
+                  "title_link": redmine_url+'issues/'+issue.id
               }
               );
             }
