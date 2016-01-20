@@ -19,7 +19,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // test route
-app.get('/', function (req, res) { res.status(200).send('Hello world!') });
+app.get('/', function (req, res) { res.status(200).send('Hello world!');
+   // run slack message that will read all message. 
+    require("./slack-message");
+});
 
 // hellobot
 app.get('/hello', hellobot);
@@ -47,4 +50,6 @@ app.use(function (err, req, res, next) {
 
 app.listen(port, process.env.IP || "0.0.0.0", function () {
   console.log('Slack bot listening on port ' + port);
+  // run slack message that will read all message. 
+  require("./slack-message");
 });

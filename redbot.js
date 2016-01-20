@@ -32,6 +32,9 @@ module.exports = function (req, res, next) {
             text: text,
             ts: message.timestamp
           });
+  } else if (userName === 'slackbot' && message.subtype == 'bot_message') { // cas où c'est un message de Trello, alors on fait un traitement particulier. 
+      
+       return res.status(200).end();
   } else {
     return res.status(200).end();
   }
