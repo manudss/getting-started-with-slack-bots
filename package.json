@@ -1,9 +1,10 @@
 {
-  "name": "getting-started-with-slack-bots",
-  "version": "0.0.1",
+  "name": "redmine-trello-slack",
+  "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "git clone https://github.com/slackhq/node-slack-client.git lib/node-slack-client && cd lib/node-slack-client && npm install"
   },
   "repository": {
     "type": "git",
